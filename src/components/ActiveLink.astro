@@ -1,0 +1,49 @@
+---
+const { activePage, to } = Astro.props;
+const active = activePage && activePage === to && "active";
+---
+
+{
+  active ? (
+    <a class="active" href="#">
+      <slot />
+    </a>
+  ) : (
+    <a href={to}>
+      <slot />
+    </a>
+  )
+}
+
+<style lang="scss">
+  @import "../sass/colores";
+  a {
+    font-size: 0.8em;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.5em;
+    //align-content: center;
+    //vertical-align: middle;
+  }
+
+  a.active {
+    font-weight: bolder;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-bottom: 0.5em;
+    transition: 0.3s;
+    background-color: rgba($dark-background-color, 0.5);
+    border-bottom: thick solid $secondary-color;
+    color: $secondary-color;
+  }
+
+  a:hover {
+    color: $secondary-color;
+  }
+</style>

@@ -1,0 +1,34 @@
+---
+import Blog from "./icons/Blog.astro";
+import Event from "./icons/Event.astro";
+import Information from "./icons/Information.astro";
+import Menu from "./icons/Menu.astro";
+import Video from "./icons/Video.astro";
+
+const iconMap = {
+  blog: Blog,
+  event: Event,
+  information: Information,
+  menu: Menu,
+  video: Video,
+};
+
+const { name, size } = Astro.props;
+//@ts-ignore
+const IconComponent = iconMap[name];
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  width={size ? size : "1em"}
+  height={size ? size : "1em"}
+>
+  <IconComponent />
+</svg>
+
+<style>
+  svg {
+    vertical-align: middle;
+  }
+</style>

@@ -1,0 +1,88 @@
+---
+import Header from "../components/Header.astro";
+import BackgroundPictures from "../components/BackgroundPictures.astro";
+import Footer from "../components/Footer.astro";
+const { pageTitle, activePage } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <BackgroundPictures />
+    <Header activePage={activePage} />
+    <div class="wrapper">
+      <h1>{pageTitle}</h1>
+      <slot />
+    </div>
+    <Footer />
+  </body>
+</html>
+
+<style lang="scss">
+  @import "../sass/colores";
+  @import "../sass/fonts";
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Reddit Sans", sans-serif;
+    font-size: 20px;
+    color: $color;
+  }
+
+  body {
+    background-color: $background-color;
+  }
+
+  .wrapper {
+    width: 80%;
+    box-sizing: border-box;
+    margin: 0.4rem auto;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(0.75rem);
+
+    border-color: white;
+    background-color: $transparent-background-color;
+  }
+
+  @media (max-width: 1400px) {
+    .wrapper {
+      width: 980px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .wrapper {
+      width: 850px;
+    }
+  }
+
+  @media (max-width: 990px) {
+    .wrapper {
+      width: 90%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .wrapper {
+      width: 95%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .wrapper {
+      width: 100%;
+    }
+  }
+</style>

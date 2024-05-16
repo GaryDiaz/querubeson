@@ -1,0 +1,65 @@
+---
+import { Image } from "astro:assets";
+import querubeSonLogo from "../images/querubesonLogo.png";
+import Navigation from "./Navigation.astro";
+const { activePage } = Astro.props;
+---
+
+<header>
+  <a href="/" class="logo">
+    <Image src={querubeSonLogo} alt="QS" height={128} width={128} />
+  </a>
+  <Navigation activePage={activePage} />
+  <a href="#" id="btnContactanos" class="btn"><button>Contáctanos</button></a>
+</header>
+
+<style lang="scss">
+  @import "../sass/colores";
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    padding: 5px 10%;
+    background-color: $primary-color;
+
+    .logo {
+      cursor: pointer;
+      img {
+        height: 70px;
+        width: auto;
+        transition: all 0.3s;
+      }
+      img:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    .btn {
+      button {
+        font-family: "Alegreya Sans";
+        font-style: normal;
+        font-weight: 800;
+        color: $dark-accent-color;
+        padding: 9px 25px;
+        background-color: $background-color;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+      }
+
+      button:hover {
+        background-color: $accent-color;
+        color: $dark-color;
+        transform: scale(1.1);
+      }
+    }
+
+    @media (max-width: 800px) {
+      #btnContactanos {
+        display: none;
+      }
+    }
+  }
+</style>

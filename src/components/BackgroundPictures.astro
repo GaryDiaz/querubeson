@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+import garyMC from "../images/GaryMC.png";
+import gleydisMC from "../images/GleydisMC.png";
+import querubeSonLogo from "../images/querubesonLogo.png";
+---
+
+<div class="backgroundPictures">
+  <Image
+    class="leftPicture"
+    src={garyMC}
+    alt="QS Gary MC"
+    height={720}
+    width={227}
+  />
+  <Image
+    class="pictureLogo"
+    src={querubeSonLogo}
+    alt="Querube Son - Logo"
+    height={540}
+    width={540}
+  />
+  <Image
+    class="rightPicture"
+    src={gleydisMC}
+    alt="QS Gleydis MC"
+    height={720}
+    width={286}
+  />
+</div>
+
+<style lang="scss">
+  @import "../sass/colores";
+  .backgroundPictures {
+    position: fixed;
+    z-index: -1;
+    display: flex;
+    flex: auto;
+    justify-content: space-between;
+    width: 100%;
+    .pictureLogo {
+      margin-top: 200px;
+    }
+  }
+
+  @media (max-width: 1040px) {
+    .rightPicture,
+    .leftPicture {
+      display: none;
+    }
+
+    .backgroundPictures {
+      justify-content: center;
+    }
+  }
+</style>

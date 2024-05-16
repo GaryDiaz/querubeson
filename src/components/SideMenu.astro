@@ -1,0 +1,154 @@
+---
+import ActiveLink from "./ActiveLink.astro";
+import Icon from "./Icon.astro";
+const menuItems = [
+  { to: "about", description: "Quiénes somos", iconName: "information" },
+  { to: "videos", description: "Videos", iconName: "video" },
+  { to: "eventos", description: "Eventos", iconName: "event" },
+  { to: "blog", description: "Blog", iconName: "blog" },
+];
+const { activePage } = Astro.props;
+---
+
+<>
+  <button id="btnSideMenu"><Icon name="menu" size="2em" /></button>
+  <div id="borderMenu">
+    <nav class="menuSide">
+      <ul class="nav-links">
+        {
+          menuItems.map((menuItem) => (
+            <li>
+              <a href={menuItem.to}>
+                <Icon name={menuItem.iconName} size="2em" />
+                <div>{menuItem.description}</div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</>
+
+<script>
+  document.getElementById("btnSideMenu")?.addEventListener("click", () => {
+    let menuSide = document.getElementById("borderMenu");
+    if (menuSide?.classList.contains("active")) {
+      menuSide.classList.remove("active");
+      return;
+    }
+    if (menuSide) {
+      menuSide.classList.add("active");
+    }
+  });
+</script>
+
+<style lang="scss">
+  @import "../sass/colores";
+  //--card-color: #222; $dark-background-color
+
+  #borderMenu {
+    display: none;
+    position: absolute;
+    width: 256px;
+    transition: left 0.5s ease-in-out;
+    left: -275px;
+    height: 205px;
+    z-index: 1;
+    top: 0;
+
+    aspect-ratio: 10/16;
+    padding: 5px;
+    border-radius: 16px;
+
+    background-image: $golden-gradient;
+    background-size: 150%;
+    filter: drop-shadow(0 0 1px rgba(255, 200, 0, 0.3));
+    animation: MoveBackgroundPosition 6s ease-in-out infinite;
+  }
+
+  @keyframes MoveBackgroundPosition {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  nav.menuSide {
+    display: none;
+    position: absolute;
+    width: 250px;
+    left: -252px;
+    top: 6px;
+    transition: left 0.5s ease-in-out;
+    z-index: 1;
+
+    padding: 0px;
+    justify-content: left;
+    align-items: center;
+    border-radius: 12px;
+
+    background-color: $dark-accent-color;
+    ul.nav-links {
+      list-style: none;
+      margin-left: 0px;
+      width: 100%;
+      padding: 0;
+      li {
+        width: 100%;
+        margin-left: 0;
+        a {
+          text-decoration: none;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-left: 30px;
+          color: $secondary-color;
+          div {
+            margin-left: 8px;
+          }
+        }
+        a:hover {
+          text-shadow: 1px 1px 2px black;
+          color: white;
+          font-weight: bolder;
+        }
+      }
+      li:hover {
+        width: 100%;
+        background-image: $golden-gradient;
+      }
+    }
+  }
+
+  #borderMenu.active {
+    transition: left 0.8s ease;
+    left: 0px;
+  }
+  #borderMenu.active > .menuSide {
+    transition: left 0.5s ease-in-out;
+    left: 7px;
+  }
+
+  #btnSideMenu {
+    display: none;
+    text-align-last: right;
+  }
+
+  @media (max-width: 800px) {
+    #borderMenu,
+    nav.menuSide {
+      display: inline-flex;
+    }
+    #btnSideMenu {
+      display: flex;
+    }
+  }
+</style>

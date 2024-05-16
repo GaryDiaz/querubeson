@@ -1,0 +1,53 @@
+---
+import ActiveLink from "./ActiveLink.astro";
+import Icon from "./Icon.astro";
+const menuItems = [
+  { to: "about", description: "Quiénes somos", iconName: "information" },
+  { to: "videos", description: "Videos", iconName: "video" },
+  { to: "eventos", description: "Eventos", iconName: "event" },
+  { to: "blog", description: "Blog", iconName: "blog" },
+];
+const { activePage } = Astro.props;
+---
+
+<nav class="menuNav">
+  <ul class="nav-links">
+    {
+      menuItems.map((menuItem) => (
+        <li>
+          <ActiveLink activePage={activePage} to={menuItem.to}>
+            <>
+              <Icon name={menuItem.iconName} size="2em" />
+              <div>{menuItem.description}</div>
+            </>
+          </ActiveLink>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style lang="scss">
+  @import "../sass/colores";
+  @import "../sass/fonts";
+  nav.menuNav {
+    ul.nav-links {
+      list-style: none;
+      li {
+        display: inline-block;
+        padding: 0 20px;
+        font-family: "Poetsen One", sans-serif;
+        font-weight: 400;
+      }
+      li:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    nav.menuNav {
+      display: none;
+    }
+  }
+</style>

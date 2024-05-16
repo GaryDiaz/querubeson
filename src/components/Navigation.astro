@@ -1,0 +1,16 @@
+---
+import MenuBar from "./MenuBar.astro";
+import SideMenu from "./SideMenu.astro";
+const menuItems = [
+  { to: "about", description: "Quiénes somos", iconName: "information" },
+  { to: "videos", description: "Videos", iconName: "video" },
+  { to: "eventos", description: "Eventos", iconName: "event" },
+  { to: "blog", description: "Blog", iconName: "blog" },
+];
+const { activePage } = Astro.props;
+---
+
+<>
+  <MenuBar activePage={activePage} menuItems={menuItems} />
+  <SideMenu activePage={activePage} menuItems={menuItems} />
+</>
