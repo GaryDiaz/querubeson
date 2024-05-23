@@ -2,14 +2,10 @@
 import { Image } from "astro:assets";
 import enConstruccionQS from "../images/enConstruccionQS.jpg";
 import BaseLayout from "../layout/BaseLayout.astro";
+import InConstruction from "../components/InConstruction.astro";
 const pageTitle = "Querube Son";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <Image
-    src={enConstruccionQS}
-    alt="Página en construcción"
-    width="623"
-    height="417"
-  />
+  <InConstruction sectionTitle={pageTitle} />
 </BaseLayout>
