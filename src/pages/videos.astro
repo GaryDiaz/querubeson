@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import VideoArticle from "@components/VideoArticle.astro";
 import { videoList } from "@components/VideoList";
 import type { VideoData } from "@components/Types";
 const pageTitle = "Videos de Youtuve";
@@ -17,25 +18,7 @@ const images = {
 
 <BaseLayout pageTitle={pageTitle} activePage={activePage}>
   <section class="video-list">
-    {
-      videoList.map((video: VideoData) => (
-        <article class="video">
-          <figure class="video-picture">
-            <Image
-              src={images[video.idVideo]}
-              alt="QS"
-              height={270}
-              width={480}
-            />
-          </figure>
-          <div class="video-data">
-            <h2>{video.title}</h2>
-            <h4>{video.idVideo}</h4>
-            <p>{video.description}</p>
-          </div>
-        </article>
-      ))
-    }
+    {videoList.map((video: VideoData) => <VideoArticle video={video} />)}
   </section>
 </BaseLayout>
 
@@ -50,57 +33,5 @@ const images = {
     justify-content: center;
     max-width: 75rem;
     gap: 1.5rem;
-
-    article.video {
-      max-width: 20rem;
-      cursor: pointer;
-      position: relative;
-      display: block;
-      transition: all 0.4s ease-in-out;
-      overflow: hidden;
-      border-radius: 1rem;
-      background-color: antiquewhite;
-
-      figure.video-picture {
-        margin: 0 auto;
-        width: 100%;
-        height: 12rem;
-        overflow: hidden;
-
-        img {
-          max-width: 100%;
-          transform-origin: center;
-          transition: transform 0.4s ease-in-out;
-
-          height: 100%;
-          aspect-ratio: 16 / 9;
-          overflow: hidden;
-          object-fit: cover;
-        }
-      }
-
-      .video-data {
-        padding: 1.5rem;
-        //background: white;
-
-        h2 {
-          margin: 0 0 1rem 0;
-          font-size: 1.2rem;
-          transition: color 0.3s ease-out;
-          color: $primary-color;
-        }
-        h4 {
-        }
-        p {
-        }
-      }
-    }
-    article.video:hover {
-      figure.video-picture {
-        img {
-          transform: scale(1.5);
-        }
-      }
-    }
   }
 </style>

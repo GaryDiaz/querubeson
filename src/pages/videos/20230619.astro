@@ -1,5 +1,6 @@
 ---
-import type { VideoData } from "../../components/Types";
+import YoutubeLayout from "@layouts/YoutubeLayout.astro";
+import type { VideoData } from "@components/Types";
 const videoData: VideoData = {
   idVideo: "y8Rqb-P1NvI",
   title: "Mi viejo",
@@ -10,7 +11,6 @@ const videoData: VideoData = {
     "Cover del Tema Mi Viejo, de Adolescentes Orquesta, del Compositor Arnaldo Quintero",
   tags: ["cover", "homenaje", "mi-viejo", "adolescentes"],
 };
-import YoutubeLayout from "@layouts/YoutubeLayout.astro";
 ---
 
 <YoutubeLayout videoData={videoData}>
