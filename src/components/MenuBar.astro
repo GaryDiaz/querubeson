@@ -1,6 +1,6 @@
 ---
-import ActiveLink from "./ActiveLink.astro";
-import Icon from "./Icon.astro";
+import ActiveLink from "@components/ActiveLink.astro";
+import Icon from "@components/Icon.astro";
 const menuItems = [
   { to: "about", description: "Quiénes somos", iconName: "information" },
   { to: "videos", description: "Videos", iconName: "video" },
@@ -15,7 +15,10 @@ const { activePage } = Astro.props;
     {
       menuItems.map((menuItem) => (
         <li>
-          <ActiveLink activePage={activePage} to={menuItem.to}>
+          <ActiveLink
+            activePage={activePage}
+            to={activePage === "youtube" ? "../" + menuItem.to : menuItem.to}
+          >
             <>
               <Icon name={menuItem.iconName} size="2em" />
               <div>{menuItem.description}</div>

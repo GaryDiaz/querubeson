@@ -1,0 +1,50 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import YoutubeVideo from "../components/YoutubeVideo.astro";
+import type { VideoData } from "../components/Types";
+const { videoData } = Astro.props;
+---
+
+<BaseLayout pageTitle={videoData.title} activePage="youtube">
+  <YoutubeVideo idVideo={videoData.idVideo} />
+  <p>Escrito por {videoData.author}</p>
+  <p>Publicado el: {videoData.publicationDate.toString().slice(0, 10)}</p>
+  <p>{videoData.description}</p>
+  <div class="badges">
+    {
+      videoData.tags.map((tag: string) => (
+        <div class="badge">
+          <a href={`/tags/${tag}`}>{tag}</a>
+        </div>
+      ))
+    }
+  </div>
+  <slot />
+</BaseLayout>
+
+<style lang="scss">
+  @import "../sass/colores";
+  @import "../sass/fonts";
+  .badges {
+    display: flex;
+    .badge {
+      align-content: space-between;
+      border-radius: 0.5rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      margin-right: 0.25rem;
+      background-color: $primary-color;
+
+      a {
+        text-decoration: none;
+        color: $dark-color;
+      }
+      a:hover {
+        color: $color;
+      }
+    }
+    .badge:hover {
+      background-image: $golden-gradient;
+    }
+  }
+</style>

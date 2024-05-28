@@ -1,0 +1,24 @@
+---
+import type { VideoData } from "../../components/Types";
+const videoData: VideoData = {
+  idVideo: "y8Rqb-P1NvI",
+  title: "Mi viejo",
+  publicationDate: new Date("2023-06-19"),
+  author: "Arnaldo Quintero",
+  singer: "Gary Díaz",
+  description:
+    "Cover del Tema Mi Viejo, de Adolescentes Orquesta, del Compositor Arnaldo Quintero",
+  tags: ["cover", "homenaje", "mi-viejo", "adolescentes"],
+};
+import YoutubeLayout from "@layouts/YoutubeLayout.astro";
+---
+
+<YoutubeLayout videoData={videoData}>
+  <p>
+    El tema Original mi viejo fue compuesto por <strong>Arnaldo Quintero</strong
+    > para su padre y grabado con Adolescentes Orquesta, me siento muy identificado
+    con el tema, ya que, describe tal cual mi proceso durante la enfermedad que se
+    llevó a mi padre. Mi Padre también fue músico, gracias a el soy lo que soy, tenía
+    tiempo queriendo hacerle este homenaje, gracias por todo.
+  </p>
+</YoutubeLayout>
