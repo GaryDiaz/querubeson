@@ -2,26 +2,34 @@
 import BaseLayout from "./BaseLayout.astro";
 import YoutubeVideo from "../components/YoutubeVideo.astro";
 import type { VideoData } from "../components/Types";
+interface Props {
+  videoData: VideoData | undefined;
+}
 const { videoData } = Astro.props;
 ---
 
-<BaseLayout pageTitle={videoData.title} activePage="youtube">
-  <YoutubeVideo idVideo={videoData.idVideo} />
-  <p>Escrito por {videoData.author}</p>
-  <p>Publicado el: {videoData.publicationDate.toString().slice(0, 10)}</p>
-  <p>{videoData.description}</p>
-  <div class="badges">
-    {
-      videoData.tags.map((tag: string) => (
-        <div class="badge">
-          <a href={`/tags/${tag}`}>{tag}</a>
-        </div>
-      ))
-    }
-  </div>
-  <slot />
-</BaseLayout>
-
+{
+  videoData ? (
+    <BaseLayout pageTitle={videoData.title} activePage="youtube">
+      <YoutubeVideo idVideo={videoData.idVideo} />
+      <p>Escrito por {videoData.author}</p>
+      <p>Publicado el: {videoData.publicationDate.toString().slice(0, 10)}</p>
+      <p>{videoData.description}</p>
+      <div class="badges">
+        {videoData.tags.map((tag: string) => (
+          <div class="badge">
+            <a href={`/tags/${tag}`}>{tag}</a>
+          </div>
+        ))}
+      </div>
+      <slot />
+    </BaseLayout>
+  ) : (
+    <BaseLayout pageTitle="Video No encontrado" activePage="youtube">
+      <slot />
+    </BaseLayout>
+  )
+}
 <style lang="scss">
   @import "../sass/colores";
   @import "../sass/fonts";
