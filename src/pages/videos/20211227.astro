@@ -3,7 +3,7 @@ import YoutubeLayout from "@layouts/YoutubeLayout.astro";
 import type { VideoData } from "@components/Types";
 import { videoList } from "@components/VideoList";
 import VideoNoEncontrado from "@components/VideoNoEncontrado.astro";
-const idPage = "20230619";
+const idPage = "20211227";
 const videoData: VideoData | undefined = videoList.find(
   (video) => video.idPage === idPage
 );
@@ -12,14 +12,7 @@ const videoData: VideoData | undefined = videoList.find(
 {
   videoData ? (
     <YoutubeLayout videoData={videoData}>
-      <p>
-        El tema Original mi viejo fue compuesto por{" "}
-        <strong>Arnaldo Quintero</strong> para su padre y grabado con
-        Adolescentes Orquesta, me siento muy identificado con el tema, ya que,
-        describe tal cual mi proceso durante la enfermedad que se llevó a mi
-        padre. Mi Padre también fue músico, gracias a el soy lo que soy, tenía
-        tiempo queriendo hacerle este homenaje, gracias por todo.
-      </p>
+      <p>{videoData.description}</p>
     </YoutubeLayout>
   ) : (
     <YoutubeLayout videoData={undefined}>
