@@ -1,4 +1,5 @@
 ---
+import { format } from "date-fns";
 import { Image } from "astro:assets";
 import type { VideoData } from "@components/Types";
 import burritoSabanero from "../images/youtube/burritoSabanero.jpg";
@@ -24,9 +25,11 @@ const ima: ImageMetadataArray = {
     <Image src={ima[video.idVideo]} alt="QS" height={270} width={480} />
   </figure>
   <div class="video-data">
-    <h2>{video.title}</h2>
-    <h4>{video.idVideo}</h4>
-    <p>{video.description}</p>
+    <a href={"videos/" + video.idPage}>
+      <h2>{video.title}</h2>
+      <h4>Publicado: {format(video.publicationDate, "PP")}</h4>
+      <p>{video.description}</p>
+    </a>
   </div>
 </article>
 
@@ -41,7 +44,7 @@ const ima: ImageMetadataArray = {
     transition: all 0.4s ease-in-out;
     overflow: hidden;
     border-radius: 1rem;
-    background-color: antiquewhite;
+    background-color: rgba(#ddd, 0.7);
 
     figure.video-picture {
       margin: 0 auto;
@@ -60,24 +63,30 @@ const ima: ImageMetadataArray = {
         object-fit: cover;
       }
     }
-
     .video-data {
-      padding: 1.5rem;
       //background: white;
+      padding: 1.5rem;
+      a {
+        text-decoration: none;
+        color: black;
 
-      h2 {
-        margin: 0 0 1rem 0;
-        font-size: 1.2rem;
-        transition: color 0.3s ease-out;
-        color: $primary-color;
-      }
-      h4 {
-      }
-      p {
+        h2 {
+          margin: 0 0 1rem 0;
+          font-size: 1.2rem;
+          transition: color 0.3s ease-out;
+          color: $primary-color;
+        }
+        h4 {
+        }
+        p {
+        }
       }
     }
   }
   article.video:hover {
+    background-color: rgba(#ddd, 0.95);
+    box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, 0.75);
+    transition-duration: 80ms;
     figure.video-picture {
       img {
         transform: scale(1.5);

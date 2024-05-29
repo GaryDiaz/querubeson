@@ -1,6 +1,7 @@
 import type { VideoData } from "@components/Types";
 export const videoList: VideoData[] = [
   {
+    idPage: "20230619",
     idVideo: "y8Rqb-P1NvI",
     title: "Mi viejo",
     publicationDate: new Date("2023-06-19"),
@@ -11,6 +12,7 @@ export const videoList: VideoData[] = [
     tags: ["cover", "homenaje", "mi-viejo", "adolescentes"],
   },
   {
+    idPage: "20211227",
     idVideo: "hPCejhyo8y0",
     title: "Burrito Sabanero",
     publicationDate: new Date("2021-12-27"),
@@ -21,6 +23,7 @@ export const videoList: VideoData[] = [
     tags: ["cover", "navidad"],
   },
   {
+    idPage: "20210930",
     idVideo: "pdbj8nDhU6c",
     title: "Homenaje a Héctor Lavoe",
     publicationDate: new Date("2021-09-30"),

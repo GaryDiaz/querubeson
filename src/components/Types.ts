@@ -1,4 +1,5 @@
 export type VideoData = {
+  idPage: string;
   idVideo: string;
   title: string;
   publicationDate: Date;
