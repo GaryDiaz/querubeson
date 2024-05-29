@@ -1,24 +1,32 @@
 ---
 import YoutubeLayout from "@layouts/YoutubeLayout.astro";
 import type { VideoData } from "@components/Types";
-const videoData: VideoData = {
-  idVideo: "y8Rqb-P1NvI",
-  title: "Mi viejo",
-  publicationDate: new Date("2023-06-19"),
-  author: "Arnaldo Quintero",
-  singer: "Gary Díaz",
-  description:
-    "Cover del Tema Mi Viejo, de Adolescentes Orquesta, del Compositor Arnaldo Quintero",
-  tags: ["cover", "homenaje", "mi-viejo", "adolescentes"],
-};
+import { videoList } from "@components/VideoList";
+const idPage = "20230619";
+const videoData: VideoData | undefined = videoList.find(
+  (video) => video.idPage === idPage
+);
 ---
 
-<YoutubeLayout videoData={videoData}>
-  <p>
-    El tema Original mi viejo fue compuesto por <strong>Arnaldo Quintero</strong
-    > para su padre y grabado con Adolescentes Orquesta, me siento muy identificado
-    con el tema, ya que, describe tal cual mi proceso durante la enfermedad que se
-    llevó a mi padre. Mi Padre también fue músico, gracias a el soy lo que soy, tenía
-    tiempo queriendo hacerle este homenaje, gracias por todo.
-  </p>
-</YoutubeLayout>
+{
+  videoData ? (
+    <YoutubeLayout videoData={videoData}>
+      <p>
+        El tema Original mi viejo fue compuesto por{" "}
+        <strong>Arnaldo Quintero</strong> para su padre y grabado con
+        Adolescentes Orquesta, me siento muy identificado con el tema, ya que,
+        describe tal cual mi proceso durante la enfermedad que se llevó a mi
+        padre. Mi Padre también fue músico, gracias a el soy lo que soy, tenía
+        tiempo queriendo hacerle este homenaje, gracias por todo.
+      </p>
+    </YoutubeLayout>
+  ) : (
+    <YoutubeLayout videoData={undefined}>
+      <h1>Video no encontrado</h1>
+      <p>
+        No se encontro de video con con buscado, regrese a la sección de{" "}
+        <a href="../videos">Videos</a> y seleccione otro video
+      </p>
+    </YoutubeLayout>
+  )
+}
