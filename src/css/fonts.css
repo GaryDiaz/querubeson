@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poetsen+One&family=Reddit+Sans:ital,wght@0,200..600;1,200..600&display=swap");
 
+* {
+  font-family: "Reddit Sans", sans-serif;
+  font-size: 20px;
+}
+
 .poetsen-one-regular {
   font-family: "Poetsen One", sans-serif;
   font-weight: 400;

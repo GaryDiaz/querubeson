@@ -30,9 +30,9 @@ const { videoData } = Astro.props;
     </BaseLayout>
   )
 }
-<style lang="scss">
-  @import "../sass/colores";
-  @import "../sass/fonts";
+<style>
+  @import "../css/colors";
+  @import "../css/fonts";
   .badges {
     display: flex;
     .badge {
@@ -41,18 +41,18 @@ const { videoData } = Astro.props;
       padding-left: 0.5rem;
       padding-right: 0.5rem;
       margin-right: 0.25rem;
-      background-color: $primary-color;
+      background-color: var(--primary-color);
 
       a {
         text-decoration: none;
-        color: $dark-color;
+        color: var(--background-color);
       }
       a:hover {
-        color: $color;
+        color: var(--color);
       }
     }
     .badge:hover {
-      background-image: $golden-gradient;
+      background-image: var(--golden-gradient);
     }
   }
 </style>

@@ -7,9 +7,9 @@
   <h6>Desarrollado por <a href="https://github.com/GaryDiaz">Gary Díaz</a></h6>
 </footer>
 
-<style lang="scss">
-  @import "../sass/colores";
-  @import "../sass/fonts";
+<style>
+  @import "../css/colors";
+  @import "../css/fonts";
 
   footer {
     width: 80%;
@@ -22,8 +22,8 @@
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(0.75rem);
 
-    border-color: white;
-    background-color: $transparent-background-color;
+    border-color: var(--secondary-color);
+    background-color: var(--transparent-background-color);
   }
 
   @media (max-width: 1400px) {

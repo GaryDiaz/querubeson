@@ -15,8 +15,8 @@ const active = activePage && activePage === to && "active";
   )
 }
 
-<style lang="scss">
-  @import "../sass/colores";
+<style>
+  @import "../css/colors";
   a {
     font-size: 0.8em;
     color: white;
@@ -38,12 +38,12 @@ const active = activePage && activePage === to && "active";
     padding-right: 0.5em;
     padding-bottom: 0.5em;
     transition: 0.3s;
-    background-color: rgba($dark-background-color, 0.5);
-    border-bottom: thick solid $secondary-color;
+    background-color: rgba(#202020, 0.5);
+    border-bottom: thick solid var(--secondary-color);
     color: $secondary-color;
   }
 
   a:hover {
-    color: $secondary-color;
+    color: var(--secondary-color);
   }
 </style>

@@ -29,8 +29,7 @@ import querubeSonLogo from "../images/querubesonLogo.png";
   />
 </div>
 
-<style lang="scss">
-  @import "../sass/colores";
+<style>
   .backgroundPictures {
     position: fixed;
     z-index: -1;
@@ -38,11 +37,10 @@ import querubeSonLogo from "../images/querubesonLogo.png";
     flex: auto;
     justify-content: space-between;
     width: 100%;
-    .pictureLogo {
-      margin-top: 200px;
-    }
   }
-
+  .backgroundPictures > .pictureLogo {
+    margin-top: 200px;
+  }
   @media (max-width: 1040px) {
     .rightPicture,
     .leftPicture {

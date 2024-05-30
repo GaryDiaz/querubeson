@@ -30,25 +30,22 @@ const { activePage } = Astro.props;
   </ul>
 </nav>
 
-<style lang="scss">
-  @import "../sass/colores";
-  @import "../sass/fonts";
-  nav.menuNav {
-    ul.nav-links {
-      list-style: none;
-      li {
-        display: inline-block;
-        padding: 0 20px;
-        font-family: "Poetsen One", sans-serif;
-        font-weight: 400;
-      }
-      li:hover {
-        transform: scale(1.1);
-      }
-    }
+<style>
+  @import "../css/colors";
+  @import "../css/fonts";
+  ul.nav-links {
+    list-style: none;
   }
-
-  @media (max-width: 800px) {
+  ul.nav-links > li {
+    display: inline-block;
+    padding: 0 20px;
+    font-family: "Alegreya", sans-serif;
+    font-weight: 400;
+  }
+  ul.nav-links > li:hover {
+    transform: scale(1.1);
+  }
+  @media (max-width: 940px) {
     nav.menuNav {
       display: none;
     }

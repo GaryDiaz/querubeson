@@ -13,53 +13,51 @@ const { activePage } = Astro.props;
   <a href="#" id="btnContactanos" class="btn"><button>Contáctanos</button></a>
 </header>
 
-<style lang="scss">
-  @import "../sass/colores";
+<style>
+  @import "../css/colors";
+  @import "../css/fonts";
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 85px;
     padding: 5px 10%;
-    background-color: $primary-color;
+    background-color: var(--primary-color);
+  }
+  a.logo {
+    cursor: pointer;
+  }
+  a.logo > img {
+    height: 70px;
+    width: auto;
+    transition: all 0.3s;
+  }
+  a.logo > img:hover {
+    transform: scale(1.2);
+  }
 
-    .logo {
-      cursor: pointer;
-      img {
-        height: 70px;
-        width: auto;
-        transition: all 0.3s;
-      }
-      img:hover {
-        transform: scale(1.2);
-      }
-    }
+  .btn > button {
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--dark-accent-color);
+    background-color: var(--background-color);
+    padding: 9px 25px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+  }
 
+  .btn > button:hover {
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 940px) {
     .btn {
-      button {
-        font-family: "Alegreya Sans";
-        font-style: normal;
-        font-weight: 800;
-        color: $dark-accent-color;
-        padding: 9px 25px;
-        background-color: $background-color;
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 0.3s ease 0s;
-      }
-
-      button:hover {
-        background-color: $accent-color;
-        color: $dark-color;
-        transform: scale(1.1);
-      }
-    }
-
-    @media (max-width: 800px) {
-      #btnContactanos {
-        display: none;
-      }
+      display: none;
     }
   }
 </style>

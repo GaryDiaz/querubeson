@@ -43,9 +43,8 @@ const { activePage } = Astro.props;
   });
 </script>
 
-<style lang="scss">
-  @import "../sass/colores";
-  //--card-color: #222; $dark-background-color
+<style>
+  @import "../css/colors";
 
   #borderMenu {
     display: none;
@@ -61,12 +60,11 @@ const { activePage } = Astro.props;
     padding: 5px;
     border-radius: 16px;
 
-    background-image: $golden-gradient;
+    background-image: var(--golden-gradient);
     background-size: 150%;
     filter: drop-shadow(0 0 1px rgba(255, 200, 0, 0.3));
     animation: MoveBackgroundPosition 6s ease-in-out infinite;
   }
-
   @keyframes MoveBackgroundPosition {
     0% {
       background-position: 0% 50%;
@@ -95,39 +93,38 @@ const { activePage } = Astro.props;
     align-items: center;
     border-radius: 12px;
 
-    background-color: $dark-accent-color;
-    ul.nav-links {
-      list-style: none;
-      margin-left: 0px;
-      width: 100%;
-      padding: 0;
-      li {
-        width: 100%;
-        margin-left: 0;
-        a {
-          text-decoration: none;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          margin-left: 30px;
-          color: $secondary-color;
-          div {
-            margin-left: 8px;
-          }
-        }
-        a:hover {
-          text-shadow: 1px 1px 2px black;
-          color: white;
-          font-weight: bolder;
-        }
-      }
-      li:hover {
-        width: 100%;
-        background-image: $golden-gradient;
-      }
-    }
+    background-color: var(--dark-accent-color);
   }
-
+  ul.nav-links {
+    list-style: none;
+    margin-left: 0px;
+    width: 100%;
+    padding: 0;
+  }
+  ul.nav-links > li {
+    width: 100%;
+    margin-left: 0;
+  }
+  ul.nav-links > li > a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 30px;
+    color: var(--secondary-color);
+  }
+  ul.nav-links > li > a > div {
+    margin-left: 8px;
+  }
+  ul.nav-links > li > a:hover {
+    text-shadow: 1px 1px 2px black;
+    color: white;
+    font-weight: bolder;
+  }
+  ul.nav-links > li:hover {
+    width: 100%;
+    background-image: var(golden-gradient);
+  }
   #borderMenu.active {
     transition: left 0.8s ease;
     left: 0px;
@@ -142,7 +139,7 @@ const { activePage } = Astro.props;
     text-align-last: right;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 940px) {
     #borderMenu,
     nav.menuSide {
       display: inline-flex;
