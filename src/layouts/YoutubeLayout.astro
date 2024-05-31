@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import YoutubeVideo from "../components/YoutubeVideo.astro";
+import YoutubeSubscription from "@components/YoutubeSubscription.astro";
 import type { VideoData } from "../components/Types";
 interface Props {
   videoData: VideoData | undefined;
@@ -12,6 +13,7 @@ const { videoData } = Astro.props;
   videoData ? (
     <BaseLayout pageTitle={videoData.title} activePage="youtube">
       <YoutubeVideo idVideo={videoData.idVideo} />
+      <YoutubeSubscription />
       <p>Escrito por {videoData.author}</p>
       <p>Publicado el: {videoData.publicationDate.toString().slice(0, 10)}</p>
       <p>{videoData.description}</p>

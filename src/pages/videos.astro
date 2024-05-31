@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import VideoArticle from "@components/VideoArticle.astro";
+import YoutubeSubscription from "@components/YoutubeSubscription.astro";
 import { videoList } from "@components/VideoList";
 import type { VideoData } from "@components/Types";
 const pageTitle = "Videos de Youtuve";
@@ -8,9 +9,12 @@ const activePage = "videos";
 ---
 
 <BaseLayout pageTitle={pageTitle} activePage={activePage}>
-  <section class="video-list">
-    {videoList.map((video: VideoData) => <VideoArticle video={video} />)}
-  </section>
+  <>
+    <YoutubeSubscription />
+    <section class="video-list">
+      {videoList.map((video: VideoData) => <VideoArticle video={video} />)}
+    </section>
+  </>
 </BaseLayout>
 
 <style>
