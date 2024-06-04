@@ -1,13 +1,11 @@
 ---
-import ActiveLink from "./ActiveLink.astro";
 import Icon from "./Icon.astro";
-const menuItems = [
-  { to: "about", description: "Quiénes somos", iconName: "group" },
-  { to: "videos", description: "Videos", iconName: "video" },
-  { to: "eventos", description: "Eventos", iconName: "event" },
-  { to: "blog", description: "Blog", iconName: "blog" },
-];
-const { activePage } = Astro.props;
+import type { MenuItem } from "./MenuInfo";
+interface Props {
+  activePage: string;
+  menuItems: MenuItem[];
+}
+const { activePage, menuItems } = Astro.props;
 ---
 
 <>
@@ -18,9 +16,13 @@ const { activePage } = Astro.props;
         {
           menuItems.map((menuItem) => (
             <li>
-              <a href={activePage === "youtube" ? "../" + menuItem.to : menuItem.to}>
+              <a
+                href={
+                  activePage === "youtube" ? "../" + menuItem.to : menuItem.to
+                }
+              >
                 <Icon name={menuItem.iconName} size="2em" />
-                <div>{menuItem.description}</div>
+                <div class="menu-description">{menuItem.description}</div>
               </a>
             </li>
           ))
@@ -100,46 +102,51 @@ const { activePage } = Astro.props;
     margin-left: 0px;
     width: 100%;
     padding: 0;
-  }
-  ul.nav-links > li {
-    width: 100%;
-    margin-left: 0;
-  }
-  ul.nav-links > li > a {
-    text-decoration: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-left: 30px;
-    color: var(--secondary-color);
-  }
-  ul.nav-links > li > a > div {
-    margin-left: 8px;
-  }
-  ul.nav-links > li > a:hover {
-    text-shadow: 1px 1px 2px black;
-    color: white;
-    font-weight: bolder;
-  }
-  ul.nav-links > li:hover {
-    width: 100%;
-    background-image: var(golden-gradient);
+
+    & li {
+      width: 100%;
+      margin-left: 0;
+
+      &:hover {
+        width: 100%;
+        background-image: var(golden-gradient);
+      }
+
+      & a {
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 30px;
+        color: var(--secondary-color);
+
+        &:hover {
+          text-shadow: 1px 1px 2px black;
+          color: white;
+          font-weight: bolder;
+        }
+
+        & .menu-description {
+          margin-left: 8px;
+        }
+      }
+    }
   }
   #borderMenu.active {
     transition: left 0.8s ease;
     left: 0px;
-  }
-  #borderMenu.active > .menuSide {
-    transition: left 0.5s ease-in-out;
-    left: 7px;
-  }
 
+    & menuSide {
+      transition: left 0.5s ease-in-out;
+      left: 7px;
+    }
+  }
   #btnSideMenu {
     display: none;
     text-align-last: right;
   }
 
-  @media (max-width: 940px) {
+  @media (max-width: 670px) {
     #borderMenu,
     nav.menuSide {
       display: inline-flex;

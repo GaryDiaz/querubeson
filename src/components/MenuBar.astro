@@ -1,13 +1,12 @@
 ---
 import ActiveLink from "@components/ActiveLink.astro";
 import Icon from "@components/Icon.astro";
-const menuItems = [
-  { to: "about", description: "Quiénes somos", iconName: "group" },
-  { to: "videos", description: "Videos", iconName: "video" },
-  { to: "eventos", description: "Eventos", iconName: "event" },
-  { to: "blog", description: "Blog", iconName: "blog" },
-];
-const { activePage } = Astro.props;
+import type { MenuItem } from "./MenuInfo";
+interface Props {
+  activePage: string;
+  menuItems: MenuItem[];
+}
+const { activePage, menuItems } = Astro.props;
 ---
 
 <nav class="menuNav">
@@ -21,7 +20,7 @@ const { activePage } = Astro.props;
           >
             <>
               <Icon name={menuItem.iconName} size="2em" />
-              <div>{menuItem.description}</div>
+              <div class="menu-description">{menuItem.description}</div>
             </>
           </ActiveLink>
         </li>
@@ -35,17 +34,23 @@ const { activePage } = Astro.props;
   @import "../css/fonts";
   ul.nav-links {
     list-style: none;
-  }
-  ul.nav-links > li {
-    display: inline-block;
-    padding: 0 20px;
-    font-family: "Alegreya", sans-serif;
-    font-weight: 400;
-  }
-  ul.nav-links > li:hover {
-    transform: scale(1.1);
+    & li {
+      display: inline-block;
+      padding: 0 20px;
+      font-family: "Alegreya", sans-serif;
+      font-weight: 400;
+
+      &:hover {
+        transform: scale(1.25);
+      }
+    }
   }
   @media (max-width: 940px) {
+    .menu-description {
+      display: none;
+    }
+  }
+  @media (max-width: 670px) {
     nav.menuNav {
       display: none;
     }

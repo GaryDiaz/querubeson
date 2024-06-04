@@ -10,7 +10,6 @@ const { activePage } = Astro.props;
     <Image src={querubeSonLogo} alt="QS" height={128} width={128} />
   </a>
   <Navigation activePage={activePage} />
-  <a href="#" id="btnContactanos" class="btn"><button>Contáctanos</button></a>
 </header>
 
 <style>
@@ -26,38 +25,15 @@ const { activePage } = Astro.props;
   }
   a.logo {
     cursor: pointer;
-  }
-  a.logo > img {
-    height: 70px;
-    width: auto;
-    transition: all 0.3s;
-  }
-  a.logo > img:hover {
-    transform: scale(1.2);
-  }
 
-  .btn > button {
-    font-family: "Poetsen One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: var(--dark-accent-color);
-    background-color: var(--background-color);
-    padding: 9px 25px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-  }
+    & img {
+      height: 70px;
+      width: auto;
+      transition: all 0.3s;
 
-  .btn > button:hover {
-    background-color: var(--accent-color);
-    color: var(--dark-color);
-    transform: scale(1.1);
-  }
-
-  @media (max-width: 940px) {
-    .btn {
-      display: none;
+      &hover {
+        transform: scale(1.2);
+      }
     }
   }
 </style>

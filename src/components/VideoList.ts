@@ -1,4 +1,14 @@
-import type { VideoData } from "@components/Types";
+export type VideoData = {
+  idPage: string;
+  idVideo: string;
+  title: string;
+  publicationDate: Date;
+  author: string;
+  singer: string;
+  description: string;
+  tags: string[];
+};
+
 export const videoList: VideoData[] = [
   {
     idPage: "20230619",
