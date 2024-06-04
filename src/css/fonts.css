@@ -5,33 +5,6 @@
   font-size: 20px;
 }
 
-.poetsen-one-regular {
-  font-family: "Poetsen One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.reddit-sans-regular {
-  font-family: "Reddit Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.reddit-sans-italic {
-  font-family: "Reddit Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.reddit-sans-bold {
-  font-family: "Reddit Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: normal;
-}
-
 h1,
 h2,
 h3 {

@@ -2,7 +2,7 @@
 import ActiveLink from "./ActiveLink.astro";
 import Icon from "./Icon.astro";
 const menuItems = [
-  { to: "about", description: "Quiénes somos", iconName: "information" },
+  { to: "about", description: "Quiénes somos", iconName: "group" },
   { to: "videos", description: "Videos", iconName: "video" },
   { to: "eventos", description: "Eventos", iconName: "event" },
   { to: "blog", description: "Blog", iconName: "blog" },
@@ -18,7 +18,7 @@ const { activePage } = Astro.props;
         {
           menuItems.map((menuItem) => (
             <li>
-              <a href={menuItem.to}>
+              <a href={activePage === "youtube" ? "../" + menuItem.to : menuItem.to}>
                 <Icon name={menuItem.iconName} size="2em" />
                 <div>{menuItem.description}</div>
               </a>

@@ -15,7 +15,30 @@ const { idVideo } = Astro.props;
 <style>
   iframe {
     width: 100%;
-    aspect-ratio: 16/9;
+    height: 480px;
     border-radius: 1rem;
+  }
+  @media (max-width: 1200px) {
+    .wrapper {
+      height: 360px;
+    }
+  }
+
+  @media (max-width: 990px) {
+    .wrapper {
+      height: 360px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .wrapper {
+      height: 360px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .wrapper {
+      height: 360px;
+    }
   }
 </style>

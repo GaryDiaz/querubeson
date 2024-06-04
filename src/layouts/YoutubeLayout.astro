@@ -1,8 +1,10 @@
 ---
+import "../css/colors.css";
+import "../css/fonts.css";
 import BaseLayout from "./BaseLayout.astro";
-import YoutubeVideo from "../components/YoutubeVideo.astro";
+import YoutubeVideo from "@components/YoutubeVideo.astro";
 import YoutubeSubscription from "@components/YoutubeSubscription.astro";
-import type { VideoData } from "../components/Types";
+import type { VideoData } from "@components/Types";
 interface Props {
   videoData: VideoData | undefined;
 }
@@ -33,8 +35,6 @@ const { videoData } = Astro.props;
   )
 }
 <style>
-  @import "../css/colors";
-  @import "../css/fonts";
   .badges {
     display: flex;
     .badge {
