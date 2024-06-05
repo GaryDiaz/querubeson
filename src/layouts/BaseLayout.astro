@@ -38,18 +38,13 @@ const { pageTitle, activePage } = Astro.props;
   }
 
   .wrapper {
+    max-width: 1400px;
+    min-height: 460px;
     width: 80%;
+    height: max-content;
     box-sizing: border-box;
     margin: 0.4rem auto;
     padding: 1rem;
-    border-radius: 0.8rem;
-    border-style: solid;
-    border-width: 2px;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(0.75rem);
-
-    border-color: var(--secondary-color);
-    background-color: var(--transparent-background-color);
   }
 
   @media (max-width: 1400px) {
