@@ -1,4 +1,6 @@
 ---
+import "../css/colors.css";
+import "../css/fonts.css";
 import { format } from "date-fns";
 import { Image } from "astro:assets";
 import type { VideoData } from "./VideoList";
@@ -34,8 +36,6 @@ const ima: ImageMetadataArray = {
 </article>
 
 <style>
-  @import "../css/colors";
-  @import "../css/fonts";
   article.video {
     max-width: 20rem;
     cursor: pointer;
@@ -45,48 +45,46 @@ const ima: ImageMetadataArray = {
     overflow: hidden;
     border-radius: 1rem;
     background-color: rgba(#ddd, 0.7);
-  }
-  figure.video-picture {
-    margin: 0 auto;
-    width: 100%;
-    height: 12rem;
-    overflow: hidden;
-  }
-  figure.video-picture img {
-    max-width: 100%;
-    transform-origin: center;
-    transition: transform 0.4s ease-in-out;
 
-    height: 100%;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    object-fit: cover;
-  }
-  .video-data {
-    //background: white;
-    padding: 1.5rem;
-  }
-  .video-data a {
-    text-decoration: none;
-    color: black;
-  }
-  .video-data h2 {
-    margin: 0 0 1rem 0;
-    font-size: 1.2rem;
-    transition: color 0.3s ease-out;
-    color: $primary-color;
-  }
-  .video-data h4 {
-  }
-  .video-data p {
-  }
+    & figure.video-picture {
+      margin: 0 auto;
+      width: 100%;
+      height: 12rem;
+      overflow: hidden;
+      & img {
+        max-width: 100%;
+        transform-origin: center;
+        transition: transform 0.4s ease-in-out;
 
-  article.video:hover {
-    background-color: rgba(#ddd, 0.95);
-    box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, 0.75);
-    transition-duration: 80ms;
-  }
-  article.video:hover figure.video-picture img {
-    transform: scale(1.5);
+        height: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        object-fit: cover;
+      }
+    }
+    .video-data {
+      //background: white;
+      padding: 1.5rem;
+
+      & a {
+        text-decoration: none;
+        color: black;
+      }
+      & h2 {
+        margin: 0 0 1rem 0;
+        font-size: 1.2rem;
+        transition: color 0.3s ease-out;
+        color: $primary-color;
+      }
+    }
+    &:hover {
+      background-color: rgba(#ddd, 0.95);
+      box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, 0.75);
+      transition-duration: 80ms;
+
+      & figure.video-picture img {
+        transform: scale(1.5);
+      }
+    }
   }
 </style>

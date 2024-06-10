@@ -1,17 +1,24 @@
 /* Esquema de Colores Querube Son */
-html {
+:root {
   --primary-color: #0070aa;
   --secondary-color: #ab7500;
   --accent-color: #ab4100;
   --dark-accent-color: #1a2e38;
 
-  --background-color: #cccccc;
   --transparent-background-color: #cccccc88;
   --dark-background-color: #202020;
+  --light-color: #dddddd;
 
-  --color: #101010;
-  --dark-color: #dddddd;
+  --background-color: #cccccc;
+  --text-color: #101010;
 
+  @media (prefer-color-scheme: dark) {
+    --background-color: #202020;
+    --text-color: #dddddd;
+  }
+}
+
+html {
   --golden-gradient: repeating-linear-gradient(
     to right,
     #a2682a 0%,

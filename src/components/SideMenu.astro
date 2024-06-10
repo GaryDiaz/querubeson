@@ -1,4 +1,5 @@
 ---
+import "../css/colors.css";
 import Icon from "./Icon.astro";
 import type { MenuItem } from "./MenuInfo";
 interface Props {
@@ -46,8 +47,6 @@ const { activePage, menuItems } = Astro.props;
 </script>
 
 <style>
-  @import "../css/colors";
-
   #borderMenu {
     display: none;
     position: absolute;
@@ -96,42 +95,44 @@ const { activePage, menuItems } = Astro.props;
     border-radius: 12px;
 
     background-color: var(--dark-accent-color);
-  }
-  ul.nav-links {
-    list-style: none;
-    margin-left: 0px;
-    width: 100%;
-    padding: 0;
 
-    & li {
+    & ul.nav-links {
+      list-style: none;
+      margin-left: 0px;
       width: 100%;
-      margin-left: 0;
+      padding: 0;
 
-      &:hover {
+      & li {
         width: 100%;
-        background-image: var(golden-gradient);
-      }
-
-      & a {
-        text-decoration: none;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-left: 30px;
-        color: var(--secondary-color);
+        margin-left: 0;
 
         &:hover {
-          text-shadow: 1px 1px 2px black;
-          color: white;
-          font-weight: bolder;
+          width: 100%;
+          background-image: var(golden-gradient);
         }
 
-        & .menu-description {
-          margin-left: 8px;
+        & a {
+          text-decoration: none;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-left: 30px;
+          color: var(--secondary-color);
+
+          &:hover {
+            text-shadow: 1px 1px 2px black;
+            color: white;
+            font-weight: bolder;
+          }
+
+          & .menu-description {
+            margin-left: 8px;
+          }
         }
       }
     }
   }
+
   #borderMenu.active {
     transition: left 0.8s ease;
     left: 0px;

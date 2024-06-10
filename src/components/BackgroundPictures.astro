@@ -29,18 +29,20 @@ import gleydisMC from "../images/GleydisMC.png";
     flex: auto;
     justify-content: space-between;
     width: 100%;
+
+    .pictureLogo {
+      margin-top: 200px;
+    }
+
+    @media (max-width: 1040px) {
+      justify-content: center;
+    }
   }
-  .backgroundPictures > .pictureLogo {
-    margin-top: 200px;
-  }
+
   @media (max-width: 1040px) {
     .rightPicture,
     .leftPicture {
       display: none;
-    }
-
-    .backgroundPictures {
-      justify-content: center;
     }
   }
 </style>

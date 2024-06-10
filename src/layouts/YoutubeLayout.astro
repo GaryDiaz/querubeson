@@ -45,16 +45,17 @@ const { videoData } = Astro.props;
       margin-right: 0.25rem;
       background-color: var(--primary-color);
 
+      &:hover {
+        background-image: var(--golden-gradient);
+      }
       a {
         text-decoration: none;
         color: var(--background-color);
+
+        &:hover {
+          color: var(--text-color);
+        }
       }
-      a:hover {
-        color: var(--color);
-      }
-    }
-    .badge:hover {
-      background-image: var(--golden-gradient);
     }
   }
 </style>
